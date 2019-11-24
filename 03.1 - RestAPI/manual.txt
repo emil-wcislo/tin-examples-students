@@ -1,0 +1,24 @@
+Projekt jest rozszerzeniem projektu '01 - Model'.
+Zawiera API typu REST dla komunikacji z zewnętrznymi aplikacjami.
+(np. aplikacji typu Single Page Application w przeglądarce)
+
+Aby uruchomić projekt, należy zainstalować wymagane biblioteki (już zdefiniowane w package.json)
+ poleceniem (z katalogu projektu):
+npm install
+
+Polecenie uruchamiające aplikację:
+node app.js
+lub 
+nodemon app.js 
+Użycie nodemon w odróżnieniu od node nie wymaga restartu serwera po każdej zmianie w kodzie.
+W celu instalacji należy wykonać polecenie:
+npm install -g nodemon
+
+Obsługiwany interfejs:
+/api/users (GET) - pobranie listy użytkowników
+/api/users (POST) - dodanie nowego użytkownika
+/api/users/:userId (GET) - pobranie szczegółów użytkownika
+/api/users/:userId (PUT) - aktualizacja użytkownika
+/api/users/:userId (DELETE) - usunięcie użytkownika
+
+Aplikację należy przetestować za pomocą programu Postman, lub poleceń curl.

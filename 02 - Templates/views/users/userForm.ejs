@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title><%= pageTitle %></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/form.css'>
+    
+</head>
+
+<body>
+    <nav class="main-nav">
+        <a href="/">Strona główna</a>
+        <a href="/users">Użytkownicy</a>
+    </nav>
+    
+    <div class="form-container">
+        <h2> <%= pageTitle %></h2>
+        <form action="/users/<%= formAction %>" method="POST">
+            <input type="hidden" name="user_id" value="<%= user.id %>"></input>
+
+            <label for="firstName">Imię:</label>
+            <input id="firstName" name="first_name" type="text" <%= formAction ? '' : 'readonly' %>
+                value="<%= user.firstName %>"></input>
+
+            <label for="lastName">Nazwisko</label>
+            <input id="lastName" name="last_name" type="text" <%= formAction ? '' : 'readonly' %>
+                value="<%= user.lastName %>"></input>
+            
+            <div class="form-actions-container">
+                <% if( formAction ) { %>
+                <input type="submit" value="Zapisz" class="action-btn"></input>
+                <% } %>
+                <a href="/users" class="action-btn">Anuluj</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

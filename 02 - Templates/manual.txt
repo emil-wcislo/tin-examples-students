@@ -1,0 +1,32 @@
+Projekt jest rozszerzeniem projektu '01 - Model'.
+Zawiera interfejs webowy stworzony w oparciu o szablony EJS
+
+Aby uruchomić projekt, należy zainstalować wymagane biblioteki (już zdefiniowane w package.json)
+ poleceniem (z katalogu projektu):
+npm install
+
+Polecenie uruchamiające aplikację:
+node app.js
+lub 
+nodemon app.js 
+Użycie nodemon w odróżnieniu od node nie wymaga restartu serwera po każdej zmianie w kodzie.
+W celu instalacji należy wykonać polecenie:
+npm install -g nodemon
+
+Głowne składowe:
+- app.js - inicjalizacja aplikacji, podłączenie kontrolera
+- controller/userController.js - kontroler, którego zadaniem jest obsługa żądań
+ HTTP dla poszczególnych widoków. Wykorzystuje model z zadania 01 w celu wywołania odpowiedniej
+ operacji na bazie (pobranie listy, stworzenie obiektu). Następnie wyświetla odpowiedni widok
+ na podstawie szablonu
+- views/users/userForm.ejs, views/users/userList.ejs - szablony dla widoków formularza i listy użytkownika
+ szablon formularza może być użyty dla kilku przypadków użycia (stworznie nowego obiektu, edycja, 
+ wyświetlenie szczegółów)
+
+Dodatkowe biblioteki użyte w projekcie:
+- express
+- body-parser
+- ejs
+
+Instalacja nowej biblioteki (dla nowego projektu):
+npm install <nazwa_biblioteki> 

@@ -1,0 +1,80 @@
+html, body {
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    background-color: lightgrey;
+    border-bottom: 2px solid black;
+}
+
+.main-nav a {
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    background-color: white;
+}
+
+.main-nav a:hover {
+    color: white;
+    background: black;
+}
+
+main {
+    margin: 0.5rem 2rem; 
+}
+
+.entity-table {
+    border-collapse: collapse;
+    width: 100%;
+    /* margin: 0 auto; */
+}
+
+.entity-table th, .entity-table td {
+    border: 1px solid lightgrey;
+    padding: 0.5rem;
+}
+
+.entity-table th {
+    color: white;
+    background-color: green;
+}
+
+.entity-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.entity-table .table-footer {
+    background-color: rgb(112, 173, 112);
+}
+
+.entity-table .actions {
+    text-align: center;
+    width: 20rem;
+}
+
+.entity-table a {
+    color: black;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    background-color: white;
+}
+
+.entity-table a:hover {
+    color: white;
+    /* border: 2px solid green; */
+    /* border-radius: 5px; */
+    /* padding: 0.2rem 0.5rem; */
+    /* text-decoration: none; */
+    /* margin: 0.3rem; */
+    background-color: green;
+}

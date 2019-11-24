@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Strona główna</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/form.css'>
+    <script src='js/usersApiCalls.js'></script>
+
+</head>
+
+<body>
+    <nav class="main-nav">
+        <a id="link-main-page" href="#">Strona główna</a>
+        <a id="link-users" href="#">Użytkownicy</a>
+    </nav>
+
+    <main id="view-users" class="hidden">
+        <h1>Lista użytkowników:</h1>
+        <table class="entity-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-users"></tbody>
+            <tfoot>
+                <tr class="table-footer">
+                    <td colspan="4"><a href="#" onclick="showNew()">Nowy użytkownik</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+
+    <main id="view-form" class="form-container hidden">
+        <h2 id="form-title"></h2>
+        <form id="form-user" action="#" onsubmit="return false">
+            <input id="form-userId" type="hidden" name="user_id" value=""></input>
+            
+            <label for="form-firstName">Imię:</label>
+            <input id="form-firstName" name="first_name" type="text" value=""></input>
+            
+            <label for="form-lastName">Nazwisko</label>
+            <input id="form-lastName" name="last_name" type="text"></input>
+            
+            <div class="form-actions-container">
+                <button id="form-submit" class="action-btn">Zapisz</button>
+                <a href="#" class="action-btn" onclick="cancelForm()">Anuluj</a>
+            </div>
+        </form>
+    </main>
+</body>
+<script src='js/usersSPA.js'></script>
+
+</html>

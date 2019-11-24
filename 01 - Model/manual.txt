@@ -1,0 +1,31 @@
+Projekt napisany w oparciu o node.js zawiera definicję podstawowego modelu danych:
+ - klasę User(id, firstName, lastName), 
+ - metody operujące na bazie danych w pamięci (list(), add())
+ - testy jednostkowe dla operacji CRUD
+W projekcie brakuje operacji do edycji, usunięcia i pobrania szczegółów obiektu.
+W celu dokończenia zadania należy uzupełnić miejsca oznaczone jako FIXME
+
+Główne składowe:
+- model/user.js - Klasa modelu danych. Zawiera kolekcję wszystkich obiektów, 
+  oraz statyczne metody do operacji na bazie 
+- __tests__/model/user-test.js - testy jednostkowe dla ww. modelu w oparciu o bibliotekę Jest
+
+Aby uruchomić projekt, należy zainstalować wymagane biblioteki (już zdefiniowane w package.json)
+ poleceniem (z katalogu projektu):
+npm install
+
+Uruchomienie testów:
+npm run test
+
+Lista czynności aby stworzyć podobny projekt 'od zera':
+
+npm init
+model/user.js
+
+testy
+npm install jest --save-dev
+package.json
+   "scripts": {
+    "test": "jest"
+   }
+__tests__/model/user-test.js
