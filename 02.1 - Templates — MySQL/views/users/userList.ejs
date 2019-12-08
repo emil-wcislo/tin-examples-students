@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Lista użytkowników</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/main.css'>
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <nav class="main-nav">
+        <a href="/">Strona główna</a>
+        <a href="/users">Użytkownicy</a>
+    </nav>
+    <main>
+        <h1>Lista użytkowników:</h1>
+        <table class="entity-table">
+            <tr>
+                <th>Id</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Akcje</th>
+            </tr>
+            <% userList.forEach(function(user){ %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.firstName %></td>
+                <td><%= user.lastName %></td>
+                <td class="actions">
+                    <a href="/users/showDetails?user_id=<%= user.id %>">Szczegóły</a>
+                    <a href="/users/showEditForm?user_id=<%= user.id %>">Edytuj</a>
+                    <a href="/users/delete?user_id=<%= user.id %>">Usuń</a>
+                </td>
+            </tr>
+            <% }) %>
+            <tr class="table-footer">
+                <td colspan="4"><a href="/users/showNewForm">Nowy użytkownik</a></td>
+            </tr>
+        </table>
+    </main>
+</body>
+
+</html>

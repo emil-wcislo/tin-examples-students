@@ -1,0 +1,40 @@
+Projekt jest rozszerzeniem projektu '02 - Template'.
+Zawiera model oparty na relacyjnej bazie MySQL
+
+Aby uruchomić projekt, należy zainstalować wymagane biblioteki (już zdefiniowane w package.json)
+ poleceniem (z katalogu projektu):
+npm install
+
+Polecenie uruchamiające aplikację:
+node app.js
+lub 
+nodemon app.js 
+Użycie nodemon w odróżnieniu od node nie wymaga restartu serwera po każdej zmianie w kodzie.
+W celu instalacji należy wykonać polecenie:
+npm install -g nodemon
+
+Nowe elementy aplikacji:
+- /db/mysql.js - tworzenie połączenia do bazy danych, a właściwie puli połączeń 
+  (umożliwia współbieżne wykonywanie wielu zapytań, większa wydajność aplikacji niż przy tworzeniu
+  nowego połączenia przy każdym użyciu bazy)
+- /db/schema.sql - schemat bazy danych. Do projektu końcowego proszę dołączyć własny schemat bazy projektu
+- /db/docker/docker-compose.yml - opcjonalny element, plik Docker-a, który umożliwia uruchomienie bazy danych
+  w lokalnym kontenerze dockera bez konieczności instalacji silnika bazy danych. Wygodny sposób przenoszenia
+  konfiguracji środowiska aplikacji. Aby pobrać i uruchomić należy wywołać komendę z linii poleceń w katalogu db/docker: docker-compose up
+  Wymagana wcześniejsza instalacja środowiska Docker, nie wymagana instalacja MySQL. 
+  Zalecam zainstalowanie środowiska graficznego do bazy (np. MySQL Workbench)
+- /model/user.js - model został zmodyfikowany na potrzeby użycia bazy danych. Metody User.add() i User.list()
+  korzystają z bazy danych w celu wstawienia rekordu lub pobrania listy użytkowników.
+  Uwaga! Wywołania bazy danych są asynchroniczne (co jest mocno uzasadnione w kontekście wydajności, 
+  ponieważ silnik node.js korzysta tylko z jednego wątku). W związku z tym metody modelu nie zwracają bezpośrednio
+  rezultatu, ale obiekt typu Promise (https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Promise)
+  Prawidłowe użycie promes zostało zaprezentowane w kontrolerze userController.js
+- /controller/userController.js - metody używające bazy danych zostały zmodyfikowane, aby poprawnie
+  obsłużyć wywołania asynchroniczne (promesy)
+
+
+Dodatkowe biblioteki użyte w projekcie:
+- mysql2
+
+Instalacja nowej biblioteki (dla nowego projektu):
+npm install <nazwa_biblioteki> 
