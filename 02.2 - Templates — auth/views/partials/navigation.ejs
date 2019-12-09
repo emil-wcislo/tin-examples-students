@@ -1,0 +1,17 @@
+<nav class="main-nav">
+  <div>
+    <a href="/">Strona główna</a>
+    <% if(isUserLoggedIn) { %>
+      <a href="/users">Użytkownicy</a>
+    <% } %>  
+  </div>
+  <div>
+    <% if(isUserLoggedIn) { %>
+      <span class="userInfo">Zalogowany jako: <%= loggedUser.firstName %> <%= loggedUser.lastName %></span>
+      <a href="/auth/logout">Wyloguj się</a>
+    <% } else { %>
+      <a href="/auth/showLogin">Zaloguj się</a>
+    <% } %>
+  </div>
+
+</nav>

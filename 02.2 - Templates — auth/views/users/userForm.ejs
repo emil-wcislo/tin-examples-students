@@ -1,0 +1,33 @@
+<% include ..\partials\page-start %>
+
+<% include ..\partials\navigation %>
+
+<div class="form-container">
+  <h2> <%= pageTitle %></h2>
+  <form action="/users/<%= formAction %>" method="POST">
+    <input type="hidden" name="user_id" value="<%= user.id %>"></input>
+
+    <label for="firstName">Imię:</label>
+    <input id="firstName" name="first_name" type="text" <%= formAction ? '' : 'readonly' %>
+      value="<%= user.firstName %>"></input>
+
+    <label for="lastName">Nazwisko:</label>
+    <input id="lastName" name="last_name" type="text" <%= formAction ? '' : 'readonly' %>
+      value="<%= user.lastName %>"></input>
+
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email" <%= formAction ? '' : 'readonly' %>value="<%= user.email %>"></input>
+
+    <label for="password">Hasło:</label>
+    <input id="password" name="password" type="password" <%= formAction ? '' : 'readonly' %>
+      value="<%= user.password %>"></input>
+
+    <div class="form-actions-container">
+      <% if( formAction ) { %>
+      <input type="submit" value="Zapisz" class="action-btn"></input>
+      <% } %>
+      <a href="/users" class="action-btn">Anuluj</a>
+    </div>
+  </form>
+</div>
+<% include ..\partials\page-end %>

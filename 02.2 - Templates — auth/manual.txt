@@ -1,0 +1,33 @@
+Projekt jest rozszerzeniem projektu '02 - Templates'.
+Zawiera dodatkowo następujące funkcjonalności:
+- Tworzenie użytkowników z haszowanym hasłem
+- Uwierzytelnienie użytkowników (strona logowania), porównywanie haszowanych haseł
+- Zabezpieczenie akcji po stronie serwera - wyświetlanie listy i tworzenie nowych użytkowników
+tylko dla uwierzytelnionych
+- Zabezpieczenie widoku - link 'Użytkownicy' widoczny tylko dla uwierzytelnionych
+- Wyświetlanie komunikatu po błędzie stwierdzonym w kodzie po stronie sewera i przekierowaniu 
+na nową stronę (biblioteka flash tworząca krótkotrwałe komnikaty w sesji)
+- Sesje użytkowników i przechowywanie w niej informacji, czy użytkownik został poprawnie
+uwierzytelniony, oraz danych użytkownika w celu wyświetlenia informacji na pasku nawigacji
+- fragmenty strony (partials) - wydzielenie fragmentów widoków używanych na wielu stronach
+do osobnych plików w celu uniknięcia wielokrotnego powtarzania kodu
+
+Aby uruchomić projekt, należy zainstalować wymagane biblioteki (już zdefiniowane w package.json)
+ poleceniem (z katalogu projektu):
+npm install
+
+Polecenie uruchamiające aplikację:
+node app.js
+lub 
+nodemon app.js 
+Użycie nodemon w odróżnieniu od node nie wymaga restartu serwera po każdej zmianie w kodzie.
+W celu instalacji należy wykonać polecenie:
+npm install -g nodemon
+
+Dodatkowe biblioteki użyte w projekcie:
+- bcryptjs (hashowanie haseł)
+- express-session (sesje użytkowników)
+- express-flash (komunikaty wyświetlane na stronie, inicjowane po stronie serwera)
+
+Instalacja nowej biblioteki (dla nowego projektu):
+npm install <nazwa_biblioteki> 

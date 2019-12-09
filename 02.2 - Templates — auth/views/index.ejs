@@ -1,0 +1,9 @@
+<% include partials\page-start %>
+
+<% include partials\navigation %>
+
+<% if(messages.authError) { %>
+  <div class="error"><%= messages.authError %></div>
+<% } %>
+
+<% include partials\page-end %>

@@ -1,0 +1,36 @@
+<% include ..\partials\page-start %>
+
+<% include ..\partials\navigation %>
+
+<main>
+  <h1>Lista użytkowników:</h1>
+  <table class="entity-table">
+    <tr>
+      <th>Id</th>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Email</th>
+      <th>Hasło</th>
+      <th>Akcje</th>
+    </tr>
+    <% userList.forEach(function(user){ %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.firstName %></td>
+      <td><%= user.lastName %></td>
+      <td><%= user.email %></td>
+      <!-- do celów pokazowych, nie jest dobrze pokazywać hasło w aplikacji... -->
+      <td><%= user.passwordHash %></td>
+      <td class="actions">
+        <a href="/users/showDetails?user_id=<%= user.id %>">Szczegóły</a>
+        <a href="/users/showEditForm?user_id=<%= user.id %>">Edytuj</a>
+        <a href="/users/delete?user_id=<%= user.id %>">Usuń</a>
+      </td>
+    </tr>
+    <% }) %>
+    <tr class="table-footer">
+      <td colspan="6"><a href="/users/showNewForm">Nowy użytkownik</a></td>
+    </tr>
+  </table>
+</main>
+<% include ..\partials\page-end %>

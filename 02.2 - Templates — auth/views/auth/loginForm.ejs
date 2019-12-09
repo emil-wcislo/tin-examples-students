@@ -1,0 +1,24 @@
+<% include ..\partials\page-start %>
+
+<% include ..\partials\navigation %>
+
+<div class="form-container">
+  <h2> <%= pageTitle %></h2>
+  <form action="/auth/login" method="POST">
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email"></input>
+
+    <label for="password">Hasło</label>
+    <input id="password" name="password" type="password"></input>
+
+    <div class="form-actions-container">
+      <input type="submit" value="Zaloguj" class="action-btn"></input>
+      <a href="/" class="action-btn">Anuluj</a>
+    </div>
+
+    <% if(messages.loginError) { %>
+      <div class="error"><%= messages.loginError %></div>
+    <% } %>
+  </form>
+</div>
+<% include ..\partials\page-end %>
