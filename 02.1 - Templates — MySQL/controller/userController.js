@@ -38,6 +38,7 @@ router.post("/add", (req, res, next) => {
 
 router.post("/edit", (req, res, next) => {
     //FIXME
+    //db.execute('update users set ?', )
 });
 
 router.get("/showDetails", (req, res, next) => {
