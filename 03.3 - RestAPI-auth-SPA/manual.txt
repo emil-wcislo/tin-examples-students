@@ -1,0 +1,22 @@
+Projekt jest rozszerzeniem projektu '03.1 - RestAPI'.
+Zawiera dodatkowo prostą aplikację typu SPA (Single Page Application) umożliwiającą
+podstawowe operacje na danych. Aplikacja działa po stronie przeglądarki i jest napisana
+w Javascript bez dodatkowych bibliotek. W projekcie końcowym dla aplikacji typu SPA 
+zalecane jest użycie dedykowanej biblioteki / frameworku (np. React, Vue.js lub Angular),
+ze względu na dużą złożoność i brak optymalizacji kodu pisanego w 'czystym' Javascript
+
+Polecenie uruchamiające aplikację:
+node app.js
+lub 
+nodemon app.js 
+Użycie nodemon w odróżnieniu od node nie wymaga restartu serwera po każdej zmianie w kodzie.
+W celu instalacji należy wykonać polecenie:
+npm install -g nodemon
+
+js/userApiCalls.js - wywołania interfejsu back-endu z zadania 03.1. Ponieważ wywołania są 
+asynchroniczne (wołania synchroniczne są niedopuszczalne ze względu min. na blokowanie interfejsu
+użytkownika) te metody nie zwracają wyniku w 'normalny' sposób, ale wywołują funkcję przekazaną jako
+callback.
+
+js/usersSPA.js - Logika interfejsu użytkownika. Zmiany widoku, pobieranie danych z formularza,
+wywoływanie metod z userApiCalls.js
