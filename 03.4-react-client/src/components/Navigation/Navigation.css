@@ -1,0 +1,28 @@
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    background-color: lightgrey;
+    border-bottom: 2px solid black;
+}
+
+.main-nav > div {
+  padding: 0.2rem;
+  margin: 0;
+}
+
+.main-nav a {
+    color: black;
+    /* border: 2px solid black; */
+    /* border-radius: 5px; */
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    /* background-color: white; */
+}
+
+.main-nav a:hover {
+    /* color: white; */
+    /* background: black; */
+    text-shadow: 1px 1px 3px rgb(117, 117, 117) ;
+}

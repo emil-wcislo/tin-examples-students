@@ -1,0 +1,24 @@
+Przykładowa aplikacja typu SPA (Single page application) z wykorzystaniem biblioteki React.
+Wymaga aplikacji back-end dostarczającej usługi do zarządzania użytkownikami. Uwaga, aplikacja '03.1 - RestAPI' została
+zaktualizowana o użycie bilbioteki cors w celu rozluźnienia polityki bezpieczeństwa Cross-Origin Resource Sharing (CORS)
+i umożliwienia wykonywania żądań http do serwera usług na tym samym komputerze. Więcej szczegółów na: https://sekurak.pl/czym-jest-cors-cross-origin-resource-sharing-i-jak-wplywa-na-bezpieczenstwo/
+
+Głowne komponenty projektu:
+- apiCalls/userApiCalls.js - zawiera zestaw funkcji do komunikacji z serwerem w celu operacji na danych użytkowników. 
+    Korzysta z biblioteki axios do tworzenia i wykonywania żądań HTTP.
+- components/Navigation - komponent paska nawigacji
+- components/Users/UserList - komponent listy użytkowników, posiada stan. Umożliwia dalsze operacje na użytkownikach, takie jak usunięcie
+    użytkownika, przejście do widoku szczegółów, rozpoczęcie edycji i tworznia nowego użytkownika
+- components/Users/UserList/UserListRow - komponent do wyświetlania wiersza w tabeli użytkowników, komponent funkcyjny (bezstanowy)
+- components/Users/UserForm - komponent formularza użytkownika, komponent stanowy. Jest używany w widoku nowego użytkownika,
+    edycji użytkownika, podglądu szczegółów użytkownika
+- components/formMode.js - zawiera enumerację dostępnych trybów formularza (nowy obiekt, edycja obiektu, szczegóły obiektu)
+- components/Modal/ModalMessage - wyświetla komunikat dla użytkownika w oknie modalnym. Używany do potwierdzenia operacji 
+    tworzenia i edycji użytkownika na widoku formularza (UserForm). Komponent funkcyjny
+- components/Modal/ModalConfirmation - wyświetla zapytanie do użytkownika. Komponent funkcyjny. Używany w widoku listy użytkowników
+    (UserList) w celu potwierdzenia usunięcia użytkownika
+
+Komendy tworzące szkielet nowego projektu:
+npx create-react-app [nazwa projektu]    
+npm i react-router-dom
+npm i axios

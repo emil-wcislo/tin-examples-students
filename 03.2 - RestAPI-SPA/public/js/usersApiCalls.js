@@ -1,4 +1,4 @@
-const userApiBaseUrl = 'http://localhost:3000/api/users';
+const userApiBaseUrl = 'http://localhost:3001/api/users';
 
 //po wykonaniu żądania będzie wywołana funkcja zwrotna (callback) z pobranymi danymi jako parametr
 function getUserListCall(callback) {
