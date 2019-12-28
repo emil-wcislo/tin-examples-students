@@ -22,12 +22,8 @@ function App() {
         <Route exact path="/">
           <p>Strona główna</p>
         </Route>
-        <Route exact path="/users">
-          <UserList/>
-        </Route>
-        <Route exact path="/users/form">
-          <UserForm/>
-        </Route>
+        <Route exact path="/users" component={UserList} />
+        <Route exact path="/users/form" component={UserForm}/>
       </Switch>
 
 

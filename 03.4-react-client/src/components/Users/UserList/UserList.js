@@ -1,6 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
-import { Redirect } from 'react-router'
 import '../../entityTable.css';
 
 import UserListRow from './UserListRow/UserListRow';
@@ -8,22 +6,20 @@ import ModalConfirmation from '../../Modal/ModalConfirmation/ModalConfirmation';
 import { getUserListCall, deleteUserCall } from '../../../apiCalls/userApiCalls';
 import formMode from '../../formMode';
 
-// const usersBaseURL = 'http://localhost:3001/api/users';
-// Make a request for a user with a given ID
-// axios.get('/user?ID=12345')
+const USER_FORM_LINK = '/users/form';
 
 class UserList extends React.Component {
     constructor(props) {
         super(props);
-        // let { action } = useParams();
         this.state = {
             users: [],
             isFetchingUsers: false,
             showDeleteModal: false,
-            userToDelete: null,
-            redirect: false
-        }
-        console.log(`props: ${JSON.stringify(props)}`);
+            userToDelete: null,  
+        };
+        console.log(`UserList.constructor props:`);
+        console.log(this.props);
+        // console.log(`props: ${props}`);
     }
 
     componentDidMount() {
@@ -31,13 +27,11 @@ class UserList extends React.Component {
         this.setState({
             isFetchingUsers: true
         });
+        console.log(`UserList.componentDidMount() props:`);
+        console.log(this.props);
     }
 
     render() {
-        let redirectToForm = null;
-        if (this.state.redirect === true) {
-            redirectToForm = <Redirect to="/users/form" />
-        }
         let deleteConfirmModalWindow = null;
         if(this.state.showDeleteModal) {
             const userDel = this.state.userToDelete;
@@ -72,7 +66,6 @@ class UserList extends React.Component {
         });
         return (
             <>
-                {redirectToForm}
                 {deleteConfirmModalWindow}
                 <h1>Lista użytkowników:</h1>
                 <table className="entity-table">
@@ -101,18 +94,14 @@ class UserList extends React.Component {
         console.log(`handleShowDetails() userId: ${userId}`);
         window.sessionStorage.userFormMode = formMode.DETAILS;
         window.sessionStorage.userId = userId;
-        this.setState({
-            redirect: true
-        });
+        this.props.history.push(USER_FORM_LINK);
     }
 
     handleShowEditForm = (userId) => {
         console.log(`handleShowEditForm() userId: ${userId}`);
         window.sessionStorage.userFormMode = formMode.EDIT;
         window.sessionStorage.userId = userId;
-        this.setState({
-            redirect: true
-        });
+        this.props.history.push(USER_FORM_LINK);
     }
 
     handleDelete = (user) => {
@@ -126,7 +115,6 @@ class UserList extends React.Component {
 
     handleDeleteConfirm = () => {
         const user = this.state.userToDelete;
-        // axios.delete(`${usersBaseURL}/${user.id}`)
         deleteUserCall(user.id)
             .then(res => {
                 this.setState({
@@ -147,9 +135,7 @@ class UserList extends React.Component {
         console.log(`handleShowNewForm()`);
         window.sessionStorage.userFormMode = formMode.NEW;
         window.sessionStorage.userId = null;
-        this.setState({
-            redirect: true
-        });
+        this.props.history.push(USER_FORM_LINK);
     }
 
     fetchUserList = () => {
@@ -161,7 +147,6 @@ class UserList extends React.Component {
                     isFetchingUsers: false,
                     showDeleteModal: false,
                     userIdToDelete: null,
-                    redirect: false
                 });
             })
             .catch(err => {

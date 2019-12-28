@@ -17,6 +17,14 @@ Głowne komponenty projektu:
     tworzenia i edycji użytkownika na widoku formularza (UserForm). Komponent funkcyjny
 - components/Modal/ModalConfirmation - wyświetla zapytanie do użytkownika. Komponent funkcyjny. Używany w widoku listy użytkowników
     (UserList) w celu potwierdzenia usunięcia użytkownika
+- App.js - główny komponent aplikacji. Zawiera ogólny szablon wyglądu strony, oraz wyświetlanie poszczególnych widoków
+    na podstawie adresu URL. W tym celu wykorzystana jest bilbioteka react-router-dom
+
+Nawigacja pomiędzy widokami odbywa się za pomocą linków tworzonych przez komponent routera (<Link ... />), lub w kodzie,
+przez przekierowania wywoływane za pomocą API routera. W przypadku potrzeby zmiany widoku wywoływana jest funkcja push obiektu 'history'
+przekazywanego jako własność (property) do komponentu zarządzanego przez router. Parametry przekazywane są do nowego widoku
+za pomocą obiektu sessionStorage (window.sessionStorage). Alternatywnie można przekazać je jako parametry w adresie URL prowadząchym
+do nowego widoku.
 
 Komendy tworzące szkielet nowego projektu:
 npx create-react-app [nazwa projektu]    

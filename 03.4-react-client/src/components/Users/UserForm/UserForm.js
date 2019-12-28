@@ -6,7 +6,7 @@ import {
     // Route,
     Link
 } from "react-router-dom";
-import { Redirect } from 'react-router'
+// import { Redirect } from 'react-router'
 
 import formMode from '../../formMode';
 import ModalMessage from '../../Modal/ModalMessage/ModalMessage';
@@ -15,6 +15,7 @@ import { getUserDetailsCall, createUserCall, updateUserCall } from '../../../api
 
 import '../../entityForm.css';
 
+const USER_LIST_LINK = '/users';
 
 // const usersBaseUrl = 'http://localhost:3001/api/users';
 
@@ -34,8 +35,7 @@ class UserForm extends React.Component {
                 lastName: []
             },
             formMode: formMode.NEW,
-            modalMessage: null,
-            redirect: false
+            modalMessage: null
         }
     }
 
@@ -54,8 +54,7 @@ class UserForm extends React.Component {
                 lastName: []
             },
             formMode: currentFormMode,
-            modalMessage: null,
-            redirect: false
+            modalMessage: null
         })
         if (currentFormMode === formMode.EDIT || currentFormMode === formMode.DETAILS) {
             this.fetchUserDetails(userId);
@@ -64,10 +63,6 @@ class UserForm extends React.Component {
     }
 
     render() {
-        let redirect = null;
-        if (this.state.redirect) {
-            redirect = (<Redirect to="/users" />);
-        }
 
         let modalMessageWindow = null;
         if (this.state.modalMessage && this.state.modalMessage !== '') {
@@ -117,7 +112,6 @@ class UserForm extends React.Component {
         console.log(`UserForm.render() formMode: ${currentFormMode} readonly: ${readonly}`);
         return (
             <div className="form-container">
-                {redirect}
                 {modalMessageWindow}
                 <h2> {pageTitle}</h2>
                 <form>
@@ -261,7 +255,8 @@ class UserForm extends React.Component {
     handleCloseModalMessage = (event) => {
         this.setState({
             modalMessage: null,
-            redirect: true
+        }, () => {
+            this.props.history.push(USER_LIST_LINK);
         });
     }
 }
